@@ -2,13 +2,13 @@ server:
   port: 8080
 
 spring:
-  datasource::
+  datasource:
     url: jdbc:mysql://host.docker.internal:13306/user?serverTimezone=UTC&useSSL=true&autoReconnect=true&useUnicode=true&characterEncoding=utf-8
     username: user
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
-      connection-test-query: SELECT 1  # HikariCP 유효성 검사 추가
+      connection-test-query: SELECT 1 # HikariCP 유효성 검사 추가
       validation-timeout: 5000
   jpa:
     hibernate:
@@ -22,8 +22,8 @@ spring:
 eureka:
   instance:
     prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 10  # 하트비트 간격(기본 30초)
-    lease-expiration-duration-in-seconds: 30  # 만료 시간(기본 90초)
+    lease-renewal-interval-in-seconds: 10 # 하트비트 간격(기본 30초)
+    lease-expiration-duration-in-seconds: 30 # 만료 시간(기본 90초)
   client:
     register-with-eureka: true
     fetch-registry: true
@@ -33,7 +33,7 @@ eureka:
 feign:
   client:
     config:
-      default:  # 모든 Feign 클라이언트에 적용되는 기본 설정
+      default: # 모든 Feign 클라이언트에 적용되는 기본 설정
         connectTimeout: 5000
         readTimeout: 5000
         loggerLevel: basic
